@@ -8,6 +8,8 @@ Vagrant.configure(2) do |config|
   config.vm.provision "bootstrap",
     type: "shell",
     inline: <<-SHELL
+      # add nodejs v10 repository
+      curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
       sudo apt-add-repository ppa:brightbox/ruby-ng
       sudo apt-get update
       sudo apt-get install -yq ruby2.4 ruby2.4-dev
